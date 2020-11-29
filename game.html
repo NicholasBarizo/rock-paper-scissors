@@ -5,53 +5,71 @@
     </head>
     <body>
         <script>
-            let y  = computerPlay();
             function computerPlay(){
                 let computerPlay = Math.floor(Math.random()* 3);
-                if (computerPlay = 0) {
+                if (computerPlay == 0) {
                     return "rock";
                 }
-                if (computerPlay = 1){
+                if (computerPlay == 1){
                     return "paper";
                 }
-                if (computerPlay = 2) {
+                if (computerPlay == 2) {
                     return "scissors";
                 }
             }
             function game(){
-                //let x = computerPlay();
-                //const win = `You win! userHand beats computerHand!`
-                //const lose = `you lose! computerHand beats userhand!`
-                //const tie = `userHand ties with computerHand!`
+                let computerHand = computerPlay();
+                let userHand = prompt("Type your hand", "rock");
+                userHand = userHand.toLowerCase();
 
-                //let computerHand = computerPlay()
-                //let userHand = prompt player to choose a hand
-                //if userHand does not equal rock or paper or scissors
-                //  userHand = reprompt player to choose rock paper or scissors
+                while ((userHand != "rock" && userHand != "paper" && userHand != "scissors")){
+                    userHand = prompt("Choose rock, paper, or scissors");
+                }
 
-                //if userHand = rock
-                //  if computerHand = scissors
-                //      return win;
-                //  else if computerHand = paper
-                //      return lose;
-                //  else
-                //      return tie;
-                //if userHand = paper
-                //  if computerHand = rock
-                //      return win;
-                //  else if computerHand = scissors
-                //      return lose;
-                //  else
-                //      return tie;
-                //if userhand = scissors
-                //  if computerHand = paper
-                //      return win;
-                //  else if computerHand = rock
-                //      return lose;
-                //  else
-                //      return tie; 
+                let win = `You win! ${userHand} beats ${computerHand}!`;
+                let lose = `you lose! ${computerHand} beats ${userHand}!`;
+                let tie = `${userHand} ties with ${computerHand}!`;
+
+                if (userHand == "rock"){
+                    if (computerHand == "scissors"){
+                        return win;
+                    }
+                    else if (computerHand == "paper"){
+                        return lose;
+                    }
+                    else{
+                        return tie;
+                    }
+                }
+                if (userHand == "paper"){
+                    if (computerHand == "rock"){
+                        return win;
+                    }
+                    else if (computerHand == "scissors"){
+                        return lose;
+                    }
+                    else{
+                        return tie;
+                    }
+                }
+                if (userHand == "scissors"){
+                    if (computerHand == "paper"){
+                        return win;
+                    }
+                    else if (computerHand == "rock"){
+                        return lose;
+                    }
+                    else{
+                        return tie;
+                    }
+                }
             }
-
+            let repeat = true;
+            while  (repeat == true){
+                if (prompt(`${game()} Play again?`, "yes") == "yes"){
+                    repeat = true;
+                }
+            }
         </script>
     </body>
 </html>
