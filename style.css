@@ -1,0 +1,24 @@
+#body{
+    width: 300px;
+    margin: 0 auto; 
+    background-color: #909090;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+#roundResults{
+    background-color:grey;
+    height: 100px;
+    width: 300px;
+}
+button{
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+}
+h2{
+    text-align: center;
+    padding: 20px;
+    font-family: arial;
+    font-weight: 300;
+}

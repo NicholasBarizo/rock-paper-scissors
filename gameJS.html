@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link href="/style.css" rel="stylesheet">
     </head>
     <body>
+        <div id="body">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+            <div id="roundResults">
+                <h2>Rock beats paper!</h2>
+            </div>
+        </div>
         <script>
+            
             function computerPlay(){
                 let computerPlay = Math.floor(Math.random()* 3);
                 if (computerPlay == 0) {
@@ -22,14 +31,11 @@
                 let userHand = prompt("Type your hand", "rock");
                 userHand = userHand.toLowerCase();
 
-                while ((userHand != "rock" && userHand != "paper" && userHand != "scissors")){
-                    userHand = prompt("Choose rock, paper, or scissors");
-                }
-
                 let win = `You win! ${userHand} beats ${computerHand}!`;
                 let lose = `You lose! ${computerHand} beats ${userHand}!`;
                 let tie = `${userHand} ties with ${computerHand}!`;
 
+                // Return Winner and Loser
                 if (userHand == "rock"){
                     if (computerHand == "scissors"){
                         return win;
@@ -62,13 +68,6 @@
                     else{
                         return tie;
                     }
-                }
-            }
-            let repeat = true;
-            while  (repeat == true){
-                if (prompt("Want to play Rock Paper Scissors?", "yes").toLowerCase() == "yes"){
-                    alert(game());
-                    repeat = true;
                 }
             }
         </script>
