@@ -33,6 +33,8 @@
                 const rock = document.querySelector('#rock');
                 const paper = document.querySelector('#paper');
                 const scissors = document.querySelector('#scissors');
+                const playAgainYes = document.querySelector('#playAgainYes');
+                const playAgainNo = document.querySelector('#playAgainNo');
                 const playerHandButton = document.querySelectorAll('button.playerHandButton')
                 const roundResults = document.getElementById('roundResults');
                 const roundResultsText = document.getElementById('roundResultsText');
@@ -54,6 +56,13 @@
                 scissors.addEventListener('click', () => {
                     roundResultsText.textContent = game(event.target.id.toString());
                 });
+                playAgainYes.addEventListener('click', () => {
+                    resetGame();
+                });
+                playAgainNo.addEventListener('click', () =>{
+                
+                });
+                
             //}
             function computerPlay(){
                 let computerPlayNum = Math.floor(Math.random()* 3);
@@ -134,6 +143,16 @@
                         return determineResults(userHand, computerHand, 'tie');
                     }
                 }
+            }
+            function resetGame(){
+                userScore = 0;
+                computerScore = 0;
+                userScoreText.textContent = userScore;
+                computerScoreText.textContent = computerScore;
+                userScoreBackground.style.backgroundColor = 'hsl(115 60% 50%)';
+                computerScoreBackground.style.backgroundColor = 'hsl(0 60% 50%)';
+                playAgain.style.display ='none';
+                playerHandButton.forEach(element => element.disabled = false);
             }
         </script>
     </body>
