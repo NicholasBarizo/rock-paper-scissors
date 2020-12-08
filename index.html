@@ -87,6 +87,7 @@
                         playAgain.style.display = 'flex';
                         return 'You\'ve won the match! Play again?'
                     }
+                    userHand = userHand.charAt(0).toUpperCase() + userHand.slice(1);
                     return `You win! ${userHand} beats ${computerHand}!`;
                 }
                 if(roundResult == 'loss'){
@@ -99,11 +100,13 @@
                         playAgain.style.display = 'flex';
                         return 'You\'ve lost the match! Play again?'
                     }
+                    computerHand = computerHand.charAt(0).toUpperCase() + computerHand.slice(1);
                     return `You lose! ${computerHand} beats ${userHand}!`;
                 }
                 if(roundResult == 'tie'){
                     roundResults.style.backgroundColor = 'hsl(60 0% 80%)';
-                    return `${userHand} ties with ${computerHand}!`;
+                    let capitalized = userHand.charAt(0).toUpperCase() + userHand.slice(1);
+                    return `${capitalized} ties with ${computerHand}!`;
                 }
             }
             function game(userHand){
