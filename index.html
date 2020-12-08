@@ -5,12 +5,21 @@
         <meta charset ="UTF-8">
     </head>
     <body>
+        <h1 id="gameResult"></h1>
         <div id="body">
+            <div id="scoreboard">
+                <div id="userScore">
+                    <h3 id="userScoreText">0</h3>
+                </div>
+                <div id="computerScore">
+                    <h3 id="computerScoreText">0</h3>
+                </div>
+            </div>
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
             <div id="roundResults">
-                <h2 id="roundResultsText">Rock beats paper!</h2>
+                <h2 id="roundResultsText"></h2>
             </div>
         </div>
         <script>
@@ -23,7 +32,9 @@
                 const scissors = document.querySelector('#scissors');
                 const roundResults = document.getElementById('roundResults');
                 const roundResultsText = document.getElementById('roundResultsText');
-
+                const userScoreText = document.getElementById('userScoreText');
+                const computerScoreText = document.getElementById('computerScoreText');
+                const gameResult = document.getElementById('gameResult');
                 // button clicks
                 rock.addEventListener('click', () => {
                     roundResultsText.textContent = game(event.target.id.toString());
@@ -49,18 +60,26 @@
             }
             function determineResults(userHand, computerHand, roundResult){
                 if(roundResult == 'win'){
-                    roundResults.style.backgroundColor = 'green';
-
+                    roundResults.style.backgroundColor = 'hsl(115 60% 50%)';
+                    userScore += 1;
+                    userScoreText.textContent = userScore;
+                    if(userScore >= 5){
+                        return 'You\'ve won the match! Play again?'
+                    }
                     return `You win! ${userHand} beats ${computerHand}!`;
                 }
                 if(roundResult == 'loss'){
-                    roundResults.style.backgroundColor = 'red';
+                    roundResults.style.backgroundColor = 'hsl(0 60% 50%)';
+                    computerScore += 1;
+                    computerScoreText.textContent = computerScore;
+                    if(computerScore >= 5){
+                        return 'You\'ve lost the match! Play again?'
+                    }
                     return `You lose! ${computerHand} beats ${userHand}!`;
                 }
                 if(roundResult == 'tie'){
-                    roundResults.style.backgroundColor = 'yellow';
+                    roundResults.style.backgroundColor = 'hsl(60 0% 80%)';
                     return `${userHand} ties with ${computerHand}!`;
-                    
                 }
             }
             function game(userHand){

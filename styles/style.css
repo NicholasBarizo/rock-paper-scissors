@@ -1,30 +1,115 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 #body{
     width: 300px;
     margin: 0 auto; 
-    background-color: #909090;
     margin-top: 100px;
     padding: 10px;
     border: 1px solid grey;
 }
-
-#roundResults{
-    background-color:grey;
-    height: 100px;
-    width: 300px;
+#gameResult{
+    font-size: 80px;
+    text-align: center;
 }
 
+/* || SCOREBOARD */
+#scoreboard{
+    margin: auto;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    min-height: 70px;
+    justify-content: space-between;
+}
+#userScore{
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+    background-color: hsl(115 60% 50%);
+}
+#computerScore{
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+    background-color: hsl(0 60% 50%);
+}
+#userScoreText, #computerScoreText{
+    font-size: 70px;
+    text-align: center;
+}
+
+/* || BUTTON ROW */
 button{
     padding: 10px 20px;
     margin: 10px;
     border: none;
+    background-color: hsl(0 0 80%);
 }
 button:hover{
-    background-color: yellow;
+    background-color: hsl(0 0% 60%);
 }
 button:active{
-    opacity: 70%;
+    background-color: hsl(115 60% 40%);
+    color: white;
+}
+
+/* || RESULT BOX */
+#roundResults{
+    min-height: 100px;
+    min-width: 300px;
+    border: 1px solid black;
 }
 h2{
+    font-size: 24px;
     text-align: center;
     padding: 20px;
     font-family: arial;
