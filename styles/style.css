@@ -88,16 +88,16 @@ table {
 }
 
 /* || BUTTON ROW */
-button{
+#rock, #paper, #scissors{
     padding: 10px 20px;
     margin: 10px;
     border: none;
     background-color: hsl(0 0 80%);
 }
-button:hover{
+#rock:hover, #paper:hover, #scissors:hover{
     background-color: hsl(0 0% 60%);
 }
-button:active{
+#rock:active, #paper:active, #scissors:active{
     background-color: hsl(115 60% 40%);
     color: white;
 }
@@ -107,6 +107,7 @@ button:active{
     min-height: 100px;
     min-width: 300px;
     border: 1px solid black;
+    margin: 10px 0 20px 0;
 }
 h2{
     font-size: 24px;
@@ -114,4 +115,32 @@ h2{
     padding: 20px;
     font-family: arial;
     font-weight: 300;
+}
+
+/* || PLAY AGAIN */
+#playAgain{
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    margin: 10px auto;
+    justify-content: space-between;
+    border: none;
+    }
+#playAgainYes{
+    background-color: hsl(115 60% 50%);
+}
+#playAgainNo{
+    background-color: hsl(0 60% 50%);
+}
+#playAgainYes, #playAgainNo{
+    font-size: 40px;
+    padding: 10px;
+    border: none;
+    width: 100px;
+}
+#playAgainYes:hover, #playAgainNo:hover{
+    opacity: 80%;
+}
+#playAgainYes:active, #playAgainNo:active{
+    background-color: hsl(0 0% 80%);
 }
