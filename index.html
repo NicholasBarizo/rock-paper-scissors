@@ -14,9 +14,9 @@
                     <h3 id="computerScoreText">0</h3>
                 </div>
             </div>
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+            <button id="rock" class="playerHandButton">Rock</button>
+            <button id="paper" class="playerHandButton">Paper</button>
+            <button id="scissors" class="playerHandButton">Scissors</button>
             <div id="roundResults">
                 <h2 id="roundResultsText"></h2>
             </div>
@@ -33,11 +33,17 @@
                 const rock = document.querySelector('#rock');
                 const paper = document.querySelector('#paper');
                 const scissors = document.querySelector('#scissors');
+                const playerHandButton = document.querySelectorAll('button.playerHandButton')
                 const roundResults = document.getElementById('roundResults');
                 const roundResultsText = document.getElementById('roundResultsText');
                 const userScoreText = document.getElementById('userScoreText');
                 const computerScoreText = document.getElementById('computerScoreText');
+                const userScoreBackground = document.getElementById('userScore');
+                const computerScoreBackground = document.getElementById('computerScore');
                 const gameResult = document.getElementById('gameResult');
+                const playAgain = document.getElementById('playAgain');
+                playAgain.style.display ='none';
+            
                 // button clicks
                 rock.addEventListener('click', () => {
                     roundResultsText.textContent = game(event.target.id.toString());
@@ -67,6 +73,9 @@
                     userScore += 1;
                     userScoreText.textContent = userScore;
                     if(userScore >= 5){
+                        playerHandButton.forEach(element => element.disabled = true);
+                        computerScoreBackground.style.backgroundColor ='white';
+                        playAgain.style.display = 'flex';
                         return 'You\'ve won the match! Play again?'
                     }
                     return `You win! ${userHand} beats ${computerHand}!`;
@@ -76,6 +85,9 @@
                     computerScore += 1;
                     computerScoreText.textContent = computerScore;
                     if(computerScore >= 5){
+                        playerHandButton.forEach(element => element.disabled = true);
+                        userScoreBackground.style.backgroundColor = 'white';
+                        playAgain.style.display = 'flex';
                         return 'You\'ve lost the match! Play again?'
                     }
                     return `You lose! ${computerHand} beats ${userHand}!`;
