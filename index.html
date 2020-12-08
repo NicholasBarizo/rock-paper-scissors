@@ -60,7 +60,7 @@
                     resetGame();
                 });
                 playAgainNo.addEventListener('click', () =>{
-                
+                    sendPlayAgainMessage();
                 });
                 
             //}
@@ -153,6 +153,36 @@
                 computerScoreBackground.style.backgroundColor = 'hsl(0 60% 50%)';
                 playAgain.style.display ='none';
                 playerHandButton.forEach(element => element.disabled = false);
+                roundResultsText.textContent = '';
+                roundResults.style.backgroundColor = 'white';
+            }
+            function sendPlayAgainMessage(){
+                let randomMessage = Math.floor(Math.random() * 8);
+                if (randomMessage == 0){
+                    randomMessage = 'Why not?';
+                }
+                if (randomMessage == 1){
+                    randomMessage = 'Please?';
+                }
+                if (randomMessage == 2){
+                    randomMessage = 'Play Again!';
+                }
+                if (randomMessage == 3){
+                    randomMessage = 'It\'ll be fun!';
+                }
+                if (randomMessage == 4){
+                    randomMessage = 'Do it!';
+                }
+                if (randomMessage == 5){
+                    randomMessage = 'Click the green button!';
+                }
+                if (randomMessage == 6){
+                    randomMessage = 'Click it!';
+                }
+                if (randomMessage == 7){
+                    randomMessage = 'You should!';
+                }
+                roundResultsText.textContent = randomMessage;
             }
         </script>
     </body>
