@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="styles/style.css" rel="stylesheet">
+        <meta charset ="UTF-8">
+    </head>
+    <body>
+        <div id="body">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+            <div id="roundResults">
+                <h2 id="roundResultsText">Rock beats paper!</h2>
+            </div>
+        </div>
+        <script>
+            // main();
+            // function main(){
+                let userScore = 0;
+                let computerScore = 0;
+                const rock = document.querySelector('#rock');
+                const paper = document.querySelector('#paper');
+                const scissors = document.querySelector('#scissors');
+                const roundResults = document.getElementById('roundResults');
+                const roundResultsText = document.getElementById('roundResultsText');
+
+                // button clicks
+                rock.addEventListener('click', () => {
+                    roundResultsText.textContent = game(event.target.id.toString());
+                });
+                paper.addEventListener('click', () => {
+                    roundResultsText.textContent = game(event.target.id.toString());
+                });
+                scissors.addEventListener('click', () => {
+                    roundResultsText.textContent = game(event.target.id.toString());
+                });
+            //}
+            function computerPlay(){
+                let computerPlayNum = Math.floor(Math.random()* 3);
+                if (computerPlayNum == 0) {
+                    return "rock";
+                }
+                if (computerPlayNum == 1){
+                    return "paper";
+                } 
+                if (computerPlayNum == 2) {
+                    return "scissors";
+                }
+            }
+            function determineResults(userHand, computerHand, roundResult){
+                if(roundResult == 'win'){
+                    roundResults.style.backgroundColor = 'green';
+
+                    return `You win! ${userHand} beats ${computerHand}!`;
+                }
+                if(roundResult == 'loss'){
+                    roundResults.style.backgroundColor = 'red';
+                    return `You lose! ${computerHand} beats ${userHand}!`;
+                }
+                if(roundResult == 'tie'){
+                    roundResults.style.backgroundColor = 'yellow';
+                    return `${userHand} ties with ${computerHand}!`;
+                    
+                }
+            }
+            function game(userHand){
+                let computerHand = computerPlay();
+    
+                // Return Winner and Loser
+                if (userHand == "rock"){
+                    if (computerHand == "scissors"){
+                        return determineResults(userHand, computerHand, 'win');
+                    }
+                    else if (computerHand == "paper"){
+                        return determineResults(userHand, computerHand, 'loss');
+                    }
+                    else{
+                        return determineResults(userHand, computerHand, 'tie');
+                    }
+                }
+                if (userHand == "paper"){
+                    if (computerHand == "rock"){
+                        return determineResults(userHand, computerHand, 'win');
+                    }
+                    else if (computerHand == "scissors"){
+                        return determineResults(userHand, computerHand, 'loss');
+                    }
+                    else{
+                        return determineResults(userHand, computerHand, 'tie');
+                    }
+                }
+                if (userHand == "scissors"){
+                    if (computerHand == "paper"){
+                        return determineResults(userHand, computerHand, 'win');
+                    }
+                    else if (computerHand == "rock"){
+                        return determineResults(userHand, computerHand, 'loss');
+                    }
+                    else{
+                        return determineResults(userHand, computerHand, 'tie');
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
