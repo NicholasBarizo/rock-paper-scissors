@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div id="body">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
             <div id="roundResults">
-                <h2>Rock beats paper!</h2>
+                <h2 id="roundResultsText">Rock beats paper!</h2>
             </div>
         </div>
         <script>
+            const rock = document.querySelector('#rock');
+            const paper = document.querySelector('#paper');
+            const scissors = document.querySelector('#scissors');
+            const roundResults = document.getElementById('roundResultsText');
+            rock.addEventListener('click', () => {
+                roundResults.innerHTML = game(event.target.id.toString());
+            });
+            paper.addEventListener('click', () => {
+                roundResults.innerHTML = game(event.target.id.toString());
+            });
+            scissors.addEventListener('click', () => {
+                roundResults.innerHTML = game(event.target.id.toString());
+            });
             
             function computerPlay(){
                 let computerPlay = Math.floor(Math.random()* 3);
@@ -26,11 +39,8 @@
                     return "scissors";
                 }
             }
-            function game(){
+            function game(userHand){
                 let computerHand = computerPlay();
-                let userHand = prompt("Type your hand", "rock");
-                userHand = userHand.toLowerCase();
-
                 let win = `You win! ${userHand} beats ${computerHand}!`;
                 let lose = `You lose! ${computerHand} beats ${userHand}!`;
                 let tie = `${userHand} ties with ${computerHand}!`;
