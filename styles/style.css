@@ -88,6 +88,10 @@ table {
 }
 
 /* || BUTTON ROW */
+#playerHandButtons{
+    display: flex;
+    justify-content: space-between;
+}
 #rock, #paper, #scissors{
     padding: 10px 20px;
     margin: 10px;
